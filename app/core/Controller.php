@@ -7,6 +7,11 @@
         public function view($view , $data = []){
             require '../app/views/' . $view . '.php';
         }
+        public function model($model){
+            require '../app/models/' . $model . '.php';
+            // Membuat instance dari model yang diberikan
+            return new $model();
+        }
     }
 
 ?>
