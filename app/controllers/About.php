@@ -1,12 +1,29 @@
 <?php
 
-class About {
+class About extends Controller{
     // tampilan default about page
     public function index($nama = 'achmad' , $profesi = 'Programmer'){
-        echo 'Nama : ' . $nama . '<br>' . 'Profesi : ' . $profesi;
+
+        // membuat array untuk di tampilakan ke view
+        $data['nama'] = $nama;
+        $data['profesi'] = $profesi;
+        $data['judul'] = 'about';
+
+        // mengambil data dari controller dan menampilkan ke view
+        $this->view('templates/header', $data);
+        $this->view('about/index' , $data);
+        $this->view('templates/footer');
     }
 
+    // tampilan about page
     public function page(){
-        echo 'about/index';
+
+        // membuat array untuk di tampilakan ke view
+        $data['judul'] = 'page';
+
+        // mengambil data dari controller dan menampilkan ke view
+        $this->view('templates/header', $data);
+        $this->view('about/page', $data);
+        $this->view('templates/footer');
     }
 }
