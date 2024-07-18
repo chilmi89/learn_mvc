@@ -1,5 +1,11 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
+        <div class="col-lg-6 ">
+            <!-- Your generated code goes here -->
+            <?php Flaser::flash(); ?>
+        </div>
+    </div>
+    <div class="row justify-content-center">
         <div class="col-md-8">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#form_modal">
                 Tambah data Mahasiswa

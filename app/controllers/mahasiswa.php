@@ -24,11 +24,16 @@ class Mahasiswa extends Controller
 
     public function tambah()
     {   
-        var_dump($_POST);
         if($this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST) > 0) {
+            Flaser::setFlash('Berhasil', 'ditambahkan', 'success');
             // redirect ke halaman utama mahasiswa
-            header('Location: ' . BASEURL);
+            header('Location: ' . BASEURL . '/mahasiswa');
+            exit;
+        } else {
+            Flaser::setFlash('Gagal', 'ditambahkan', 'danger');
+            header('Location: ' . BASEURL . '/mahasiswa');
             exit;
         }
     }
+
 }
