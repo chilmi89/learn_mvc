@@ -76,4 +76,10 @@ class Database {
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    // menghitung berapa baris yang masuk ke database
+    public function rowCount()
+    {
+        return $this->stmt->rowCount();
+    }
+
 }
