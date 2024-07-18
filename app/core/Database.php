@@ -58,9 +58,16 @@ class Database {
     }
 
     // eksekusi query
-    public function execute()
+    public function execute($params = [])
     {
-        $this->stmt->execute();
+        if ($this->stmt === null) {
+            throw new Exception("Statement is not prepared.");
+        }
+        foreach ($params as $key => $value) {
+
+            $this->stmt->bindValue($key, $value);
+        }
+        return $this->stmt->execute();
     }
     // mengambil hasil query dengan jumlah banyak
     public function resultSet()

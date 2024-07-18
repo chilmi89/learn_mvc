@@ -1,0 +1,21 @@
+Maaf atas kesalahannya. Berikut adalah penjelasan yang lebih akurat berdasarkan struktur folder yang mungkin ada di proyek PHP Anda:
+
+1. **app/models/**:
+    - **Mahasiswa_model.php**: File ini berisi model untuk entitas `Mahasiswa`. Model ini berinteraksi dengan database untuk melakukan operasi CRUD (Create, Read, Update, Delete) pada tabel `mahasiswa`.
+
+2. **app/controllers/**:
+    - Folder ini biasanya berisi file-file controller yang mengatur logika aplikasi dan berinteraksi dengan model serta view. Contoh: `Mahasiswa.php` yang mengatur logika untuk entitas `Mahasiswa`.
+
+3. **app/views/**:
+    - Folder ini berisi file-file view yang bertanggung jawab untuk menampilkan data kepada pengguna. Contoh: `mahasiswa/index.php` untuk menampilkan daftar mahasiswa.
+
+4. **app/config/**:
+    - Folder ini berisi file konfigurasi untuk aplikasi, seperti konfigurasi database (`database.php`), konfigurasi aplikasi (`config.php`), dll.
+
+5. **app/core/**:
+    - Folder ini berisi file inti dari framework atau aplikasi Anda, seperti `Controller.php`, `Model.php`, dan `App.php` yang mengatur routing dan inisialisasi aplikasi.
+
+6. **public/**:
+    - Folder ini berisi file yang dapat diakses publik, seperti `index.php` yang merupakan entry point aplikasi, serta aset-aset seperti CSS, JavaScript, dan gambar.
+
+Struktur folder ini membantu dalam mengorganisir kode dan memisahkan tanggung jawab masing-masing komponen dalam aplikasi.

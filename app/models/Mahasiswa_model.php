@@ -26,13 +26,17 @@ class Mahasiswa_model{
 
     public function getMahasiswaById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
+        $this->db->query('SELECT * FROM mahasiswa WHERE id=:id');
         $this->db->bind(':id', $id);
         return $this->db->single();
     }
 
     public function tambahDataMahasiswa($data)
     {
+        if(empty($data['nama']) || empty($data['npm']) || empty($data['alamat']) || empty($data['jurusan'])) {
+            return 0;
+        }
+
         $query = "INSERT INTO mahasiswa (nama, npm, alamat, jurusan) VALUES (:nama, :npm, :alamat, :jurusan)";
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
@@ -49,6 +53,27 @@ class Mahasiswa_model{
         $this->db->query($query);
         $this->db->bind('id', $id);
         $this->db->execute();
+        return $this->db->rowCount();
+    }
+    // public function GetdataUbah($id)
+    // {
+    //     $query = "SELECT * FROM mahasiswa WHERE id=:id";
+    //     $this->db->query($query);
+    //     $this->db->bind('id', $id);
+    //     return $this->db->single();
+    // }
+
+    public function ubahDataMahasiswa($data)
+    {
+        $query = "UPDATE mahasiswa SET nama = :nama, npm = :npm, alamat = :alamat, jurusan = :jurusan WHERE id = :id";
+        $this->db->query($query); // Pastikan query dipersiapkan terlebih dahulu
+        $this->db->execute([
+            ':nama' => $data['nama'],
+            ':npm' => $data['npm'],
+            ':alamat' => $data['alamat'],
+            ':jurusan' => $data['jurusan'],
+            ':id' => $data['id']
+        ]);
         return $this->db->rowCount();
     }
 }

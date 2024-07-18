@@ -36,7 +36,11 @@ class App{
         }
 
         // jalankan controller && method , serta kirimkan params
-        call_user_func_array([$this->controller, $this->method], $this->params);
+        if ($this->controller == 'mahasiswa' && $this->method == 'hapus') {
+            $this->controller->$this->method($this->params[0]);
+        } else {
+            call_user_func_array([$this->controller, $this->method], $this->params);
+        }
     }
     // parse url dan membersihkan / dan karakter
     public function parseURl(){
@@ -48,6 +52,5 @@ class App{
         }
     }
 }
-
 
 
